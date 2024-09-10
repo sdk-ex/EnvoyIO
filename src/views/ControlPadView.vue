@@ -1,11 +1,27 @@
 <script setup>
-import Input from '../components/InputFrag.vue'
-import DecorFrag from '@/components/DecorFrag.vue';
+import { RouterLink, RouterView } from 'vue-router';
+import InputFrag from '@/components/InputFrag.vue';
+import { ref, onUpdated } from 'vue';
+
+function switchComponent() {
+  
+}
+
+onUpdated(() => {});
+
 </script>
 
 <template>
+  <InputFrag />
   <main>
-    <Input class="frag"/>
-    <DecorFrag class="frag" />
+    
   </main>
 </template>
+
+<style scoped>
+
+.main-ctrlpad {
+  display: block;
+
+}
+</style>
