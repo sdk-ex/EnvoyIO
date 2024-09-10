@@ -1,11 +1,11 @@
 /* custom color palette from sdk-ex */ 
-@import './color-pallete.json';
+/*@import './color-pallete.json';
 
 :root {
   
 }
 
-/* semantic color variables for this project */
+// semantic color variables for this project 
 :root {
   
 }
@@ -15,7 +15,7 @@
     
   }
 }
-
+*/
 *,
 *::before,
 *::after {

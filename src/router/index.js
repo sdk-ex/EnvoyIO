@@ -1,30 +1,33 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import ControlPadView from '../views/ControlPadView.vue'
 import LoginView from '@/views/LoginView.vue';
-import LoggerFrag from '@/components/LoggerFrag.vue';
 
+/**
+ * @default router 
+ * 
+***/
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'login',
-      component: LoginView
+      name: 'home',   
+      // route level code-splitting 
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/ControlPadView.vue')
+
     },
     {
       path: '/logger',
       name: 'logger',
-      component: LoggerFrag
+      component: () => import('@/components/LoggerFrag.vue')
     },
     {
-      path: '/settings',
-      name: 'settings',
-
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/ControlPadView.vue')
-    }
+      path: '/login',
+      name: 'login',
+      component: LoginView
+    }    
   ]
 })
 
