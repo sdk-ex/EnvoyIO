@@ -1,6 +1,4 @@
 <script setup>
-import ControlPadView from './views/ControlPadView.vue';
-import ErrorFrag from './components/ErrorFrag.vue';
 /**  
  * Note:
  * I ended up putting the router into "ControlPadView.vue", 
@@ -16,31 +14,60 @@ import ErrorFrag from './components/ErrorFrag.vue';
 </script>
 
 <template>
-  <!--
-  <nav class="menu-nav">
-    <div class="m-1">
-      <menu class="ml-5">
-        <button class="" type="drowpdown"></button>
-        <button class="" type=""></button>
-        <button class="" type=""></button>
-      </menu>
+  <!-- Dont mess with this. Apparently, the issue was the position of this
+   container moving, not the other way around. -->
+  <main class="container position-fixed">
+    <div class="row">
+      <RouterView class="view-box" />
     </div>
-  </nav>
-  -->
-  <main class="container-flex">
-    <RouterView />
-    <div class="container-flex main-ctrlpad">
-    <RouterLink to="/logger" class="btn-lg rounded-pill m-2">Logger</RouterLink>
-    <RouterLink to="/" class="btn-lg rounded-pill m-2">Home</RouterLink>
-  </div>
   </main>
+
+  <!-- Below this is the ".link-box" container section -->
+  <div class="container">
+    <div class="row">
+      <div class="nav link-box" role="button">
+        <div class="container">
+          <span>
+            <RouterLink to="/logger" class="btn-lg rounded-pill m-1">Logger</RouterLink>
+            <RouterLink to="/" class="btn-lg rounded-pill m-1">Home</RouterLink>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
-@media (min-width: 1024px){
-  main {
-    display: flexbox;
-  }
+main {
+  display: flex;
+  max-height: 100vh;
 }
 
+.link-box {
+  display: block;
+  margin: 100% 0% 10% 0%;
+}
+
+.view-box {
+  display: inline-block;
+}
+
+@media (max-width: 900px) {
+  main {
+    display: flex;
+    place-items: center;
+  }
+
+  .view-box {
+    
+    display: block;
+    margin-top: 30%;
+  }
+
+  .link-box {
+    display: block;
+    margin-top: 130%;
+  }
+
+}
 </style>
