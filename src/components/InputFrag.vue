@@ -10,7 +10,7 @@
 </script>
 
 <template>
-  <div class="container-flex">
+  <div class="container">
     <div class="row">
       <div class="col-lg">
         <span>
@@ -51,6 +51,7 @@
 
 .col {
   display: flex;
+  position: sticky;
 }
   
 </style>
